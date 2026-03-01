@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAUS — Modern Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">HAUS</a>
+
+      <ul class="nav__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <button class="nav__cart-btn" id="cartToggleBtn" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="nav__cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!--  Cart Drawer  -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">Your Cart</h2>
+      <button class="cart-drawer__close" id="cartCloseBtn" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-drawer__body" id="cartItems">
+      <!-- Cart items rendered by JS -->
+    </div>
+
+    <div class="cart-drawer__footer" id="cartFooter">
+      <div class="cart-drawer__total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn--full" id="checkoutBtn">Proceed to Checkout</button>
+      <button class="btn btn--ghost btn--full" id="clearCartBtn">Clear Cart</button>
+    </div>
+  </aside>
+
+  <main>
+
+    <!--  Banner Section  -->
+    <section class="hero" id="home">
+      <div class="hero__content container">
+        <p class="hero__eyebrow">New Collection — 2025</p>
+        <h1 class="hero__heading">
+          Objects made<br/>
+          <em>for living</em>
+        </h1>
+        <p class="hero__sub">Thoughtfully designed homeware that balances function and form. Each piece a quiet statement.</p>
+        <div class="hero__actions">
+          <a href="#products" class="btn">Shop the Collection</a>
+          <a href="#about" class="btn btn--ghost">Our Story</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__image-wrap">
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" alt="Modern living room" />
+        </div>
+        <div class="hero__badge">
+          <span>Est.</span>
+          <span class="hero__badge-year">2019</span>
+        </div>
+      </div>
+    </section>
+
+    <!--  Marquee strip  -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Free Shipping Over $150</span>
+        <span class="dot">·</span>
+        <span>Handcrafted Quality</span>
+        <span class="dot">·</span>
+        <span>30-Day Returns</span>
+        <span class="dot">·</span>
+        <span>Sustainably Sourced</span>
+        <span class="dot">·</span>
+        <span>Free Shipping Over $150</span>
+        <span class="dot">·</span>
+        <span>Handcrafted Quality</span>
+        <span class="dot">·</span>
+        <span>30-Day Returns</span>
+        <span class="dot">·</span>
+        <span>Sustainably Sourced</span>
+        <span class="dot">·</span>
+      </div>
+    </div>
+
+    <!-- Product  -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">— Featured Collection</p>
+          <h2 class="section-title">Shop All Products</h2>
+          <p class="section-desc">Every item is made to last — chosen for material integrity and quiet elegance.</p>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" id="filterBar" role="tablist" aria-label="Filter products">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="seating" role="tab">Seating</button>
+          <button class="filter-btn" data-filter="lighting" role="tab">Lighting</button>
+          <button class="filter-btn" data-filter="decor" role="tab">Décor</button>
+          <button class="filter-btn" data-filter="storage" role="tab">Storage</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid">
+          <!-- Products injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!--  About Section   -->
+    <section class="about-strip" id="about">
+      <div class="container about-strip__inner">
+        <div class="about-strip__text">
+          <p class="section-label">— About HAUS</p>
+          <h2 class="section-title">Design with<br/><em>intention</em></h2>
+          <p>HAUS was founded on the belief that well-made objects make life better. We work directly with small workshops across Scandinavia and Japan to bring you pieces that are honest about what they are.</p>
+          <a href="#products" class="btn" style="margin-top:2rem; display:inline-block;">Explore the Shop</a>
+        </div>
+        <div class="about-strip__images">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80" alt="Workshop craftsmanship" class="about-img about-img--top" />
+          <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=80" alt="Product detail" class="about-img about-img--bottom" />
+        </div>
+      </div>
+    </section>
+
+    <!--  Trust Section  -->
+    <section class="trust-section">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <h3>Free Shipping</h3>
+          <p>On all orders over ₹9,999 within INDIA.</p>
+        </div>
+        <div class="trust-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3>2-Year Warranty</h3>
+          <p>Every product is backed by our quality guarantee.</p>
+        </div>
+        <div class="trust-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          <h3>30-Day Returns</h3>
+          <p>Not in love? Return it within 30 days, no questions.</p>
+        </div>
+        <div class="trust-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <h3>Support 24/7</h3>
+          <p>Our team is always here to help you find the right piece.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--  Footer  -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <p class="nav__logo">HAUS</p>
+        <p>Objects made for living.<br/>Designed with intention.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#products">All Products</a></li>
+          <li><a href="#products">New Arrivals</a></li>
+          <li><a href="#products">Best Sellers</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 HAUS. All rights reserved.</p>
+      <p>Built with HTML, CSS & JS</p>
+    </div>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
